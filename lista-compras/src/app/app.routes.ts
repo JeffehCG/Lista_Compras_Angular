@@ -11,6 +11,12 @@ export const ROUTES: Routes = [
         loadChildren: "./autenticacao/cadastro/cadastro.module#CadastroModule"
     },
     {
+        path: ':idLista',
+        loadChildren: "./dashboard/dashboard.module#DashboardModule",
+        canLoad: [LoginGuard],
+        canActivate: [LoginGuard]
+    },
+    {
         path: '',
         loadChildren: "./dashboard/dashboard.module#DashboardModule",
         canLoad: [LoginGuard],

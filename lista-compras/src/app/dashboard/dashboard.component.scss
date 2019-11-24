@@ -1,0 +1,22 @@
+.dashboard {
+  overflow: hidden;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 111px 1fr;
+  grid-template-columns: 245px 1fr;
+  grid-template-areas:
+    "header header"
+    "listas produtos";
+}
+
+.header{
+    grid-area: header;
+}
+
+.listas{
+    grid-area: listas;
+}
+
+.produtos{
+    grid-area: produtos;
+}

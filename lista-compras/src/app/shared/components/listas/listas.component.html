@@ -1,0 +1,22 @@
+<div class="listas">
+  <h1>Listas cadastradas</h1>
+
+  <form [formGroup]="listaForm">
+    <input type="text" formControlName="descricao" placeholder="Descrição">
+    <button [disabled]="listaForm.invalid" (click)="cadastrarLista()">Nova Lista</button>
+  </form>
+
+  <table class="lista">
+    <tr>
+      <th>ID</th>
+      <th>Descrição</th>
+      <th>Data</th>
+    </tr>
+    <tr *ngFor="let lista of listasUsuario" (click)="selecionarLista(lista.Id)" >
+      <td>{{lista.Id}}</td>
+      <td>{{lista.Descricao}}</td>
+      <td>{{lista.DataLista | date: "dd/MM/yy"}}</td>
+      <td><button (click)="deletarLista(lista.Id)">Deletar</button></td>
+    </tr>
+  </table>
+</div>
