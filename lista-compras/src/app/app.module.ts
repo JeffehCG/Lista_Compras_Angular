@@ -2,13 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { RouterModule, PreloadAllModules } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
+import { StorageServiceModule} from 'ngx-webstorage-service';
+
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    StorageServiceModule,
+    RouterModule.forRoot(ROUTES, {
+      useHash: true,
+      scrollPositionRestoration: 'enabled',
+      preloadingStrategy: PreloadAllModules
+  }),
   ],
   providers: [],
   bootstrap: [AppComponent]
