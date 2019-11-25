@@ -1,5 +1,5 @@
 export interface Produto {
-    Id: number,
+    Id?: number,
     Nome: string,
     Comprado: boolean,
     IdLista: number

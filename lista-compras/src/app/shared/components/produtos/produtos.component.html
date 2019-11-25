@@ -1,3 +1,26 @@
 <div class="produtos">
-  produtos
+  <h1>Produtos</h1>
+
+  <div class="produtos-lista" *ngIf="idLista">
+    <h1>Adicionar novo produto</h1>
+    <form [formGroup]="produtoForm">
+      <input type="text" formControlName="nome" placeholder="Descrição">
+      <button [disabled]="produtoForm.invalid" (click)="cadastrarProduto()">Novo Produto</button>
+    </form>
+  
+    <table class="produtos">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Estado</th>
+      </tr>
+      <tr *ngFor="let produto of produtosLista" >
+        <td>{{produto.Id}}</td>
+        <td>{{produto.Nome}}</td>
+        <td>{{produto.Comprado}}</td>
+        <td><button (click)="deleteProduto(produto.Id)">Deletar</button></td>
+        <td><button (click)="alterarEstadoProduto(produto)">Comprado</button></td>
+      </tr>
+    </table>
+  </div>
 </div>

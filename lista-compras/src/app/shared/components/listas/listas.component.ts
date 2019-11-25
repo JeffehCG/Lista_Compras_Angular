@@ -65,6 +65,7 @@ export class ListasComponent implements OnInit {
     this.listaService.deletarLista(idLista).subscribe(
       () => {
         this.getListasUsuario()
+        this.router.navigate(["/"])
       },
       () => {
         window.alert("Erro ao deletar lista")

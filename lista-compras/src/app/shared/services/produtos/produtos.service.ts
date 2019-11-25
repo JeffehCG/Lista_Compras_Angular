@@ -14,7 +14,7 @@ export class ProdutosService {
     return this.http.post(`${environment.api}/Produto/inserir`, produto)
   }
 
-  getListasUsuario(idLista: number){
+  getProdutosLista(idLista: number){
     return this.http.get(`${environment.api}/Produto/listar?idLista=${idLista}`)
   }
 
@@ -22,7 +22,7 @@ export class ProdutosService {
     return this.http.put(`${environment.api}/Produto/alterar`, produto)
   }
 
-  deletarLista(idProduto: number){
+  deletarProduto(idProduto: number){
     return this.http.delete(`${environment.api}/Produto/deletar?id=${idProduto}`)
   }
 }
