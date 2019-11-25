@@ -2,7 +2,7 @@
   overflow: hidden;
   height: 100vh;
   display: grid;
-  grid-template-rows: 111px 1fr;
+  grid-template-rows: 80px 1fr;
   grid-template-columns: 245px 1fr;
   grid-template-areas:
     "header header"
@@ -15,8 +15,12 @@
 
 .listas{
     grid-area: listas;
+    overflow: scroll;
+    background-color: #efefef;
 }
 
 .produtos{
     grid-area: produtos;
+    overflow: scroll;
+    background-color: #efefef;
 }

@@ -1,14 +1,14 @@
 <div class="produtos">
   <h1>Produtos</h1>
 
-  <div class="produtos-lista" *ngIf="idLista">
-    <h1>Adicionar novo produto</h1>
+  <div class="produtos-lista" *ngIf="idLista; else mensagem">
+    <h3>Adicionar novo produto</h3>
     <form [formGroup]="produtoForm">
       <input type="text" formControlName="nome" placeholder="Descrição">
       <button [disabled]="produtoForm.invalid" (click)="cadastrarProduto()">Novo Produto</button>
     </form>
   
-    <table class="produtos">
+    <!-- <table class="produtos">
       <tr>
         <th>ID</th>
         <th>Nome</th>
@@ -21,6 +21,27 @@
         <td><button (click)="deleteProduto(produto.Id)">Deletar</button></td>
         <td><button (click)="alterarEstadoProduto(produto)">Comprado</button></td>
       </tr>
-    </table>
+    </table> -->
+
+    <div class="table">
+      <div class="titulo">
+        <div>ID</div>
+        <div>Nome</div>
+        <div>Estado</div>
+        <div></div>
+        <div></div>
+      </div>
+      <div *ngFor="let produto of produtosLista" class="row">
+          <div>{{produto.Id}}</div>
+          <div>{{produto.Nome}}</div>
+          <div><div [ngClass]="{'comprado': produto.Comprado, 'pendente': !produto.Comprado}"></div></div>
+          <div><button (click)="deleteProduto(produto.Id)">Deletar</button></div>
+          <div><button (click)="alterarEstadoProduto(produto)">Comprado</button></div>
+      </div>
+    </div>
   </div>
+
+  <ng-template #mensagem>
+    <h2>Selecione uma lista para visualizar os produtos</h2>
+  </ng-template>
 </div>

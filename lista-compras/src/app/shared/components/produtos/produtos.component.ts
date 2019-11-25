@@ -42,6 +42,7 @@ export class ProdutosComponent implements OnInit {
   verificarAlteracaoLista() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
+        if(event.url != "/login" && event.url != "/cadastro")
         setTimeout(() => {
           this.getLista()
         }, 100);

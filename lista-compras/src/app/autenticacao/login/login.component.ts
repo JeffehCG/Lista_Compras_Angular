@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         this.session.setSession(data)
         this.router.navigate([''])
-        window.alert("Login efetuado com sucesso")
       },
       (error) => {
         console.log(error)

@@ -18,4 +18,8 @@ export class SessionService {
       return JSON.parse(this.storage.get("session"))
     }
   }
+
+  clearSession() {
+    this.storage.clear()
+  }
 }

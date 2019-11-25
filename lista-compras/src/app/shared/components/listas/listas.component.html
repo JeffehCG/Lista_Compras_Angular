@@ -1,16 +1,19 @@
 <div class="listas">
-  <h1>Listas cadastradas</h1>
+  <h1>Listas</h1>
 
   <form [formGroup]="listaForm">
+    <p>Digite para cadastrar nova lista</p>
     <input type="text" formControlName="descricao" placeholder="Descrição">
     <button [disabled]="listaForm.invalid" (click)="cadastrarLista()">Nova Lista</button>
   </form>
 
+  <h1>Cadastradas</h1>
   <table class="lista">
-    <tr>
+    <tr class="titulo-table">
       <th>ID</th>
       <th>Descrição</th>
       <th>Data</th>
+      <th></th>
     </tr>
     <tr *ngFor="let lista of listasUsuario" (click)="selecionarLista(lista.Id)" >
       <td>{{lista.Id}}</td>
